@@ -21,7 +21,6 @@ visitante = cur.fetchall()
 cur.execute(SELECTDUPLICADOS)
 duplicados = cur.fetchall()
 
-
 # variavel que armazenas cadastros duplicados com seus ID's
 visitantesDuplicados = []
 
@@ -31,7 +30,6 @@ for i in range(len(visitante)):
         teste2 = duplicados[c]
         if teste in teste2:
             visitantesDuplicados.append(visitante[i])
-# print(visitantesDuplicados)
 
 # Funções
 
@@ -97,12 +95,10 @@ def deletaVisitante(id):
 repetidos = []
 
 for itens in range(len(visitantesDuplicados)):
-    # print(visitantesDuplicados[itens][1])
     for itens2 in range(itens + 1, len(visitantesDuplicados)):
         if visitantesDuplicados[itens2][1] == visitantesDuplicados[itens][1]:
             if visitantesDuplicados[itens2][0] not in repetidos:
                 repetidos.append(visitantesDuplicados[itens2][0])
-            # print(visitantesDuplicados[itens2])
 
 repetidos.sort()
 for i in range(len(repetidos)):
